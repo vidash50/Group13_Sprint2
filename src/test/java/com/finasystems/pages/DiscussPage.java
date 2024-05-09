@@ -11,4 +11,6 @@ public class DiscussPage {
     }
     @FindBy(xpath = "//a[@class='oe_menu_leaf']")
     public WebElement discussButton;
+
+
 }

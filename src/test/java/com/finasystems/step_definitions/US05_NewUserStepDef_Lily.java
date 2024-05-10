@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class US05_NewUserStepDef {
+public class US05_NewUserStepDef_Lily {
 
     @Given("user is on the {string} profile")
     public void user_is_on_the_profile(String string) {

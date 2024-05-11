@@ -11,28 +11,35 @@ public class SeeCalendarDailyWeeklyMonthlyPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(linkText = "Calendar")
-    public WebElement calendarLink;
-    //       //span[contains(text(),'Calendar')]
 
-    @FindBy(css = "a[data-menu='120'] span")
-    public WebElement spanCalendar;
+    @FindBy(xpath = "//a[@data-menu='115']")
+    public WebElement Discuss;
 
-    @FindBy(xpath = "//button[contains(@class, 'week')]")
+
+    @FindBy(xpath = "//a[@data-menu='120']")
+    public WebElement Calendar;
+
+
+    @FindBy(xpath = "//button[.='Week']")
     public WebElement buttonWeek;
 
-    @FindBy(xpath = "//button[contains(@class, 'o_calendar_button_day')]")
+    @FindBy(xpath = "//button[.='Day']")
     public WebElement buttonDay;
 
-    @FindBy(xpath = "//button[contains(@class, 'o_calendar_button_month')]")
+    @FindBy(xpath = "//button[.='Month']")
     public WebElement buttonMonth;
     //o_calendar_button_month btn btn-sm btn-default active
 
     @FindBy(xpath = "//button[@class='o_calendar_button_week btn btn-sm btn-default active']")
     public WebElement buttonWeekActive;
 
-    //-DAY //span[contains(text(),'Thursday')]   --> current day of the week
-    //-Week //span[contains(text(),'Thu 05/09/2024')]
+    @FindBy(xpath = "//button[@class='o_calendar_button_day btn btn-sm btn-default active']")
+    public WebElement buttonDayActive;
+
+    @FindBy(xpath = "//button[@class='o_calendar_button_month btn btn-sm btn-default active']")
+    public WebElement buttonMonthActive;
+
+
 
 
 

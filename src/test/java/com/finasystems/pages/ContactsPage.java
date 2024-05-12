@@ -2,6 +2,7 @@ package com.finasystems.pages;
 
 import com.finasystems.utilities.Driver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,7 +13,7 @@ public class ContactsPage {
     }
 
     @FindBy(xpath = "//a[@data-menu='68']")
-    public WebElement createContact;
+    public WebElement moduleContact;
 
     @FindBy(xpath = "//button[@accesskey='c']")
     public WebElement createButton;
@@ -22,6 +23,9 @@ public class ContactsPage {
 
     @FindBy(xpath = "//button[@accesskey='s']")
     public WebElement saveButton;
+
+    @FindBy(className = "o_searchview")
+    public WebElement searchContactsBox;
 
     @FindBy(xpath = "//button[@accesskey='a']")
     public WebElement editButton;
@@ -35,6 +39,13 @@ public class ContactsPage {
     @FindBy(name = "zip")
     public WebElement zipInput;
 
+    // locate state box only then choose by text and click
+    @FindBy(id = "o_field_input_374")
+    public WebElement stateDropdown;
+
+    @FindBy(id = "ui-id-44")
+    public WebElement searchMore;
+
     @FindBy(xpath = "//td[.='Tochigi']")
     //id ="o_field_input_39"
     public WebElement stateInput;
@@ -47,4 +58,16 @@ public class ContactsPage {
 
     @FindBy(name = "title")
     public WebElement titleDropdown;
+
+    @FindBy(xpath = "(//*[text()='Search More...'])[1]")
+    public WebElement searchMoreTitleButton;
+
+    @FindBy(xpath = "//button[.='Create']")
+    public WebElement createTitleButton;
+
+    @FindBy(id = "o_field_input_2335")
+    public WebElement titleInput;
+
+    @FindBy(xpath = "(//button[.='Save'])[3]")
+    public WebElement saveTitleButon;
 }

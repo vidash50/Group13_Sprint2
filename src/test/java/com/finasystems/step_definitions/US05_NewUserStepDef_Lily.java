@@ -26,7 +26,7 @@ public class US05_NewUserStepDef_Lily {
     @When("filling only the Name input box")
     public void filling_only_the_name_input_box() {
         BrowserUtils.waitFor(5);
-        contactsPage.nameInput.sendKeys("Aaron");
+        contactsPage.nameInput.sendKeys("Karim");
     }
     @When("click the save button")
     public void click_the_save_button() {

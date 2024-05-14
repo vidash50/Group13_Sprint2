@@ -43,8 +43,10 @@ public class US05_NewUserStepDef_Lily {
     @Given("user clicks contacts and searches for recent added contact by name")
     public void userClicksContactsAndSearchesForRecentAddedContactByName() {
         contactsPage.moduleContact.click();
+        BrowserUtils.waitFor(5);
         contactsPage.searchContactsBox.sendKeys("Karim");
         contactsPage.searchContactsBox.sendKeys(Keys.ENTER);
+        contactsPage.createdContact.click();
 
     }
     @And("user clicks on edit")
@@ -54,7 +56,9 @@ public class US05_NewUserStepDef_Lily {
 
     @Then("user fills out all the empty input boxes")
     public void userFillsOutAllTheEmptyInputBoxes() {
+        contactsPage.streetInput.clear();
         contactsPage.streetInput.sendKeys("Wales Blvd");
+        contactsPage.cityInput.clear();
         contactsPage.cityInput.sendKeys("Dallas");
         contactsPage.stateDropdown.click();
         contactsPage.searchMore.click();

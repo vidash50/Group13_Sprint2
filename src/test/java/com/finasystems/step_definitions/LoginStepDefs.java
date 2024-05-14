@@ -5,6 +5,7 @@ import com.finasystems.utilities.BrowserUtils;
 import com.finasystems.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -76,7 +77,11 @@ public class LoginStepDefs {
 
     @Then("the user should see Please fill out this field message displayed")
     public void theUserShouldSeePleaseFillOutThisFieldMessageDisplayed() {
-        BrowserUtils.verifyMessage();
+
+        String validationMessage = loginPage.password.getAttribute("validationMessage");
+        Assert.assertEquals(validationMessage,"Please fill out this field.");
+        System.out.println("validationMessage = " + validationMessage);
+
     }
 
 

@@ -5,6 +5,7 @@ import com.finasystems.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
@@ -29,8 +30,9 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @Then("verify that user see the calendar as weekly")
     public void verify_that_user_see_the_calendar_as_weekly() {
-        BrowserUtils.waitFor(10);
-        seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed();
+        BrowserUtils.waitFor(5);
+       // seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed();
+        Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed());
         System.out.println("User see the calendar as weekly");
 
     }
@@ -45,12 +47,12 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @Then("verify that user see the calendar as daily")
     public void verifyThatUserSeeTheCalendarAsDaily() {
-        BrowserUtils.waitFor(10);
-        seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed();
+        BrowserUtils.waitFor(5);
+        //seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed();
+        Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed());
         System.out.println("User see the calendar as daily");
 
     }
-
 
 
 
@@ -62,8 +64,9 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @Then("verify that user see the calendar as monthly")
     public void verifyThatUserSeeTheCalendarAsMonthly() {
-        BrowserUtils.waitFor(10);
-        seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed();
+        BrowserUtils.waitFor(5);
+        //seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed();
+        Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed());
         System.out.println("User see the calendar as monthly");
     }
 

@@ -11,7 +11,6 @@ import org.junit.Assert;
 
 public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
-
     SeeCalendarDailyWeeklyMonthlyPage seeCalendarDailyWeeklyMonthlyPage = new SeeCalendarDailyWeeklyMonthlyPage();
     LocalDate date = LocalDate.now();
     String dayOfTheWeek=date.getDayOfWeek().toString();
@@ -20,36 +19,38 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @When("the user select Calendar module from Discuss \\(landing) page")
     public void theUserSelectCalendarModuleFromDiscussLandingPage() {
-        BrowserUtils.waitFor(8);
+        BrowserUtils.waitForVisibility(seeCalendarDailyWeeklyMonthlyPage.Calendar,7);
         seeCalendarDailyWeeklyMonthlyPage.Calendar.click();
     }
 
 
     @When("the user clicks on the Week button")
     public void the_user_clicks_on_the_week_button() {
-        BrowserUtils.waitFor(7);
+        BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonWeek,7);
         seeCalendarDailyWeeklyMonthlyPage.buttonWeek.click();
     }
 
     @Then("verify that user see the calendar as weekly")
     public void verify_that_user_see_the_calendar_as_weekly() {
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitForVisibility(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive, 4);
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed());
-        System.out.println("(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()) = " + (seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()));
-        System.out.println("User see the calendar as weekly");
+        //System.out.println("(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()) = " + (seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()));
+        String WeekActiveOnCalendar= seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.getAttribute("textContent");
+        String ExpectedWeekActiveOnCalendar= "Week";
+        Assert.assertEquals("Failed to set Calendar Weekly",ExpectedWeekActiveOnCalendar,WeekActiveOnCalendar);
+
     }
 
 
     @And("the user clicks on the Day button")
     public void theUserClicksOnTheDayButton() {
-        BrowserUtils.waitFor(7);
+        BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonDay,6);
         seeCalendarDailyWeeklyMonthlyPage.buttonDay.click();
     }
 
     @Then("verify that user see the calendar as daily")
     public void verifyThatUserSeeTheCalendarAsDaily() {
-        BrowserUtils.waitFor(5);
-        System.out.println("----------DAILY------");
+        BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive,4);
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed());
         System.out.println("Expected day of the week: "+ dayOfTheWeek + " - > today :)");
 //   String actualDayOfTheWeek =seeCalendarDailyWeeklyMonthlyPage.table1.getAttribute("_outerText");//error message
@@ -64,15 +65,19 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @And("the user clicks on the Month button")
     public void theUserClicksOnTheMonthButton() {
-        BrowserUtils.waitFor(7);
+        BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonMonth,6);
         seeCalendarDailyWeeklyMonthlyPage.buttonMonth.click();
     }
 
     @Then("verify that user see the calendar as monthly")
     public void verifyThatUserSeeTheCalendarAsMonthly() {
-        BrowserUtils.waitFor(5);
+        BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive,4);
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed());
         System.out.println("(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed()) = " + (seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed()));
+
+        String MonthActiveOnCalendar= seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.getAttribute("textContent");
+        String ExpectedMonthActiveOnCalendar= "Month";
+        Assert.assertEquals("Failed to set Calendar Monthly",ExpectedMonthActiveOnCalendar,MonthActiveOnCalendar);
 
         System.out.println("Expected month: "+ month);
         String actualMonth =seeCalendarDailyWeeklyMonthlyPage.meetings.getAttribute("textContent");

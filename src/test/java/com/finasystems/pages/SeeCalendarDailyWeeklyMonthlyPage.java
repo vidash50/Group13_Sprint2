@@ -40,8 +40,12 @@ public class SeeCalendarDailyWeeklyMonthlyPage {
     public WebElement buttonMonthActive;
 
 
+    // add - for testing with Local time
+    @FindBy(xpath = "//table//th[2]")
+    public WebElement table1;
 
-
+    @FindBy(xpath = "//ol[@class='breadcrumb']")
+    public WebElement meetings;
 
 
 }

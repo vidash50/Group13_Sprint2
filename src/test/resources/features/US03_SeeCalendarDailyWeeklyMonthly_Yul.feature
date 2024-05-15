@@ -5,8 +5,8 @@ Feature: Users should be able to see the calendar page as daily, weekly (as a de
     Given the user is on the login page
 #    Given the user logged in as "CRM_manager"
  #   Given the user logged in as "sales manager"
- #   Given the user logged in as "inventory manager"
-    Given the user logged in as "expenses manager"
+    Given the user logged in as "inventory manager"
+ #   Given the user logged in as "expenses manager"
 
     #Given the user logged in as "posmanager" java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
 

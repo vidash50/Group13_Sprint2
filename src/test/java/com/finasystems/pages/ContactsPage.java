@@ -24,8 +24,11 @@ public class ContactsPage {
     @FindBy(xpath = "//button[@accesskey='s']")
     public WebElement saveButton;
 
-    @FindBy(className = "o_searchview")
+    @FindBy(className = "o_searchview_input")
     public WebElement searchContactsBox;
+
+    @FindBy (xpath = "(//div[@class='o_kanban_image'])[1]")
+    public WebElement createdContact;
 
     @FindBy(xpath = "//button[@accesskey='a']")
     public WebElement editButton;

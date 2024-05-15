@@ -5,6 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
+import java.util.List;
+
+
+
 public class SalesManagerDashboardPage {
 
     public SalesManagerDashboardPage(){
@@ -12,5 +17,6 @@ public class SalesManagerDashboardPage {
     }
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav navbar-left oe_application_menu_placeholder']")
-    public WebElement dashboardModule;
+public List<WebElement> dashboardModule;
+
 }

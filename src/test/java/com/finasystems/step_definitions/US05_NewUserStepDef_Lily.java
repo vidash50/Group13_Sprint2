@@ -46,6 +46,8 @@ public class US05_NewUserStepDef_Lily {
         BrowserUtils.waitFor(5);
         contactsPage.searchContactsBox.sendKeys("Karim");
         contactsPage.searchContactsBox.sendKeys(Keys.ENTER);
+        BrowserUtils.waitForVisibility(contactsPage.createdContact, 15);
+        BrowserUtils.clickWithJS(contactsPage.createdContact);
         contactsPage.createdContact.click();
 
     }

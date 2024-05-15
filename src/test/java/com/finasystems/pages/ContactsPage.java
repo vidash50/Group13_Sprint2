@@ -27,7 +27,7 @@ public class ContactsPage {
     @FindBy(className = "o_searchview_input")
     public WebElement searchContactsBox;
 
-    @FindBy (xpath = "(//div[@class='o_kanban_image'])[1]")
+    @FindBy (xpath = "(//div[@class='oe_kanban_partner_links'])[1]")
     public WebElement createdContact;
 
     @FindBy(xpath = "//button[@accesskey='a']")
@@ -43,7 +43,7 @@ public class ContactsPage {
     public WebElement zipInput;
 
     // locate state box only then choose by text and click
-    @FindBy(id = "o_field_input_374")
+    @FindBy(xpath = "(//input[contains(@id,'o_field_input')])[8]")
     public WebElement stateDropdown;
 
     @FindBy(id = "ui-id-44")

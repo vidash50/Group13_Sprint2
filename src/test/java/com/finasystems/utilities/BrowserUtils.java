@@ -484,5 +484,18 @@ public class BrowserUtils {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void verifyMessage(){
+        WebElement messagePop = null;
+
+        try {
+            messagePop= Driver.getDriver().findElement(By.id("element is not on the DOM"));
+        } catch (NoSuchElementException e) {
+            // Please fill out this field message CAN'T BE LOCATED
+            System.out.println("message not found on the page.");
+        }
+
+        //System.out.println("Please fill out this field message");
+    }
+
 
 }

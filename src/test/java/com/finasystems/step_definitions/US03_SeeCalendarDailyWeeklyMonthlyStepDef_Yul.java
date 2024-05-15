@@ -27,14 +27,13 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @When("the user clicks on the Week button")
     public void the_user_clicks_on_the_week_button() {
-        BrowserUtils.waitFor(8);
+        BrowserUtils.waitFor(7);
         seeCalendarDailyWeeklyMonthlyPage.buttonWeek.click();
     }
 
     @Then("verify that user see the calendar as weekly")
     public void verify_that_user_see_the_calendar_as_weekly() {
         BrowserUtils.waitFor(5);
-       // seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed();
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed());
         System.out.println("(seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()) = " + (seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.isDisplayed()));
         System.out.println("User see the calendar as weekly");
@@ -43,37 +42,38 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
     @And("the user clicks on the Day button")
     public void theUserClicksOnTheDayButton() {
-        BrowserUtils.waitFor(8);
+        BrowserUtils.waitFor(7);
         seeCalendarDailyWeeklyMonthlyPage.buttonDay.click();
     }
 
     @Then("verify that user see the calendar as daily")
     public void verifyThatUserSeeTheCalendarAsDaily() {
         BrowserUtils.waitFor(5);
-        //seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed();
+        System.out.println("----------DAILY------");
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed());
-        System.out.println("User see the calendar as daily");
         System.out.println("Expected day of the week: "+ dayOfTheWeek + " - > today :)");
+//   String actualDayOfTheWeek =seeCalendarDailyWeeklyMonthlyPage.table1.getAttribute("_outerText");//error message
         String actualDayOfTheWeek =seeCalendarDailyWeeklyMonthlyPage.table1.getAttribute("outerText");
         System.out.println("Actual day of the week: " + actualDayOfTheWeek);
         System.out.println(dayOfTheWeek.equalsIgnoreCase(actualDayOfTheWeek));
 
-        //Assert.assertEquals(dayOfTheWeek,actualDayOfTheWeek); case sensitive :(
+        Assert.assertTrue("Day of the week not match with actual Day",dayOfTheWeek.equalsIgnoreCase(actualDayOfTheWeek));
+
     }
 
 
     @And("the user clicks on the Month button")
     public void theUserClicksOnTheMonthButton() {
-        BrowserUtils.waitFor(8);
+        BrowserUtils.waitFor(7);
         seeCalendarDailyWeeklyMonthlyPage.buttonMonth.click();
     }
 
     @Then("verify that user see the calendar as monthly")
     public void verifyThatUserSeeTheCalendarAsMonthly() {
         BrowserUtils.waitFor(5);
-        //seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed();
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed());
-        System.out.println("User see the calendar as monthly");
+        System.out.println("(seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed()) = " + (seeCalendarDailyWeeklyMonthlyPage.buttonMonthActive.isDisplayed()));
+
         System.out.println("Expected month: "+ month);
         String actualMonth =seeCalendarDailyWeeklyMonthlyPage.meetings.getAttribute("textContent");
         System.out.println("actualMonth = " + actualMonth);

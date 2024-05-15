@@ -2,6 +2,7 @@ package com.finasystems.step_definitions;
 
 import com.finasystems.pages.LoginPage;
 import com.finasystems.pages.SalesManagerDashboardPage;
+
 import com.finasystems.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,6 +25,7 @@ public class US17_SalesManagerDashboard {
 
 
     @Then("user sees all modules on the dashboard")
+
     public void userSeesAllModulesOnTheDashboard(List<String> expectedModules) {
 
 
@@ -32,6 +34,7 @@ public class US17_SalesManagerDashboard {
 //        }
         List<String> actualModules = BrowserUtils.getElementsText(salesManagerDashboardPage.dashboardModule);
         Assert.assertEquals(expectedModules, actualModules);
+
 
 
     }

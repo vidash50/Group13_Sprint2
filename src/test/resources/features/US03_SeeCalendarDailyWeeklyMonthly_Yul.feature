@@ -28,7 +28,7 @@ Feature: Users should be able to see the calendar page as daily, weekly (as a de
     And the user clicks on the Day button
     Then verify that user see the calendar as daily
 
-  @log_calendar_daily
+  @log_calendar_monthly
   Scenario: Verify users see the calendar as a monthly
     And the user clicks on the Month button
     Then verify that user see the calendar as monthly

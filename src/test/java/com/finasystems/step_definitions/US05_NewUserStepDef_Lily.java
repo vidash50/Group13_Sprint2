@@ -51,6 +51,7 @@ public class US05_NewUserStepDef_Lily {
     }
     @And("user clicks on edit")
     public void userClicksOnEdit() {
+        BrowserUtils.waitFor(5);
         contactsPage.editButton.click();
     }
 

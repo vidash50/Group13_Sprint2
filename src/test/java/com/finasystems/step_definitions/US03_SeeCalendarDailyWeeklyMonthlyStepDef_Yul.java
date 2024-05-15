@@ -18,7 +18,6 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
     String month=date.getMonth().toString();
 
 
-
     @When("the user select Calendar module from Discuss \\(landing) page")
     public void theUserSelectCalendarModuleFromDiscussLandingPage() {
         BrowserUtils.waitFor(8);
@@ -81,7 +80,6 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
 
         //getAttribute("innerText") textContent
     }
-
 
 
 }

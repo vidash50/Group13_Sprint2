@@ -38,7 +38,6 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
         String WeekActiveOnCalendar= seeCalendarDailyWeeklyMonthlyPage.buttonWeekActive.getAttribute("textContent");
         String ExpectedWeekActiveOnCalendar= "Week";
         Assert.assertEquals("Failed to set Calendar Weekly",ExpectedWeekActiveOnCalendar,WeekActiveOnCalendar);
-
     }
 
 
@@ -53,13 +52,12 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
         BrowserUtils.waitForClickablility(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive,4);
         Assert.assertTrue(seeCalendarDailyWeeklyMonthlyPage.buttonDayActive.isDisplayed());
         System.out.println("Expected day of the week: "+ dayOfTheWeek + " - > today :)");
-//   String actualDayOfTheWeek =seeCalendarDailyWeeklyMonthlyPage.table1.getAttribute("_outerText");//error message
+
         String actualDayOfTheWeek =seeCalendarDailyWeeklyMonthlyPage.table1.getAttribute("outerText");
         System.out.println("Actual day of the week: " + actualDayOfTheWeek);
         System.out.println(dayOfTheWeek.equalsIgnoreCase(actualDayOfTheWeek));
 
-        Assert.assertTrue("Day of the week not match with actual Day",dayOfTheWeek.equalsIgnoreCase(actualDayOfTheWeek));
-
+        Assert.assertTrue("DayOfTheWeek not match with actual Day of the week",dayOfTheWeek.equalsIgnoreCase(actualDayOfTheWeek));
     }
 
 
@@ -83,9 +81,7 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
         String actualMonth =seeCalendarDailyWeeklyMonthlyPage.meetings.getAttribute("textContent");
         System.out.println("actualMonth = " + actualMonth);
 
-        //getAttribute("innerText") textContent
     }
-
 
 }
 
@@ -99,6 +95,6 @@ public class US03_SeeCalendarDailyWeeklyMonthlyStepDef_Yul {
      //getTime();
     //String currentDateTime= currentDate.toString();
 
-
+//getAttribute("innerText") textContent
 
  */

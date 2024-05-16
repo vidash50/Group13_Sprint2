@@ -9,9 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class US17_SalesManagerDashboard {
@@ -32,8 +34,29 @@ public class US17_SalesManagerDashboard {
 //        for (String each : expectedModules) {
 //            System.out.println("actualModules = " + expectedModules);
 //        }
+        List<String> expectedModuleNames = Arrays.asList(
+                "Discuss",
+                "Calendar",
+                "Notes",
+                "Contacts",
+                "CRM",
+                "Sales",
+                "Website",
+                "Point of Sale",
+                "Purchases",
+                "Inventory",
+                "Repairs",
+                "Invoicing",
+                "Email Marketing",
+                "Events",
+                "Employees",
+                "Leaves",
+                "Expenses",
+                "Maintenance",
+                "Dashboards"
+        );
         List<String> actualModules = BrowserUtils.getElementsText(salesManagerDashboardPage.dashboardModule);
-        Assert.assertEquals(expectedModules, actualModules);
+        Assert.assertTrue(actualModules.equals(expectedModules));
 
 
 

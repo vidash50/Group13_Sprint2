@@ -24,10 +24,12 @@ public class ContactsPage {
     @FindBy(xpath = "//button[@accesskey='s']")
     public WebElement saveButton;
 
-    @FindBy(className = "o_searchview_input")
+    @FindBy(xpath = "//input[@placeholder='Search...']")
     public WebElement searchContactsBox;
 
-    @FindBy (xpath = "(//div[@class='oe_kanban_partner_links'])[1]")
+    //@FindBy (xpath = "(//div[@class='oe_kanban_partner_links'])[1]")
+    //@FindBy (xpath = "(//strong[.='Karim'])[1]")
+    @FindBy(xpath = "(//div[@class='o_kanban_image'])[1]")
     public WebElement createdContact;
 
     @FindBy(xpath = "//button[@accesskey='a']")
@@ -46,12 +48,8 @@ public class ContactsPage {
     @FindBy(xpath = "(//input[contains(@id,'o_field_input')])[8]")
     public WebElement stateDropdown;
 
-    @FindBy(id = "ui-id-44")
-    public WebElement searchMore;
-
-    @FindBy(xpath = "//td[.='Tochigi']")
-    //id ="o_field_input_39"
-    public WebElement stateInput;
+    @FindBy(xpath = "//li[.='Hokkaidō']")
+    public WebElement state;
 
     @FindBy(name = "function")
     public WebElement jobPositionInput;
@@ -62,7 +60,8 @@ public class ContactsPage {
     @FindBy(name = "title")
     public WebElement titleDropdown;
 
-    @FindBy(xpath = "(//*[text()='Search More...'])[1]")
+   // @FindBy(xpath = "(//*[text()='Search More...'])[1]")
+    @FindBy(xpath = "//li[.='Search More...']")
     public WebElement searchMoreTitleButton;
 
     @FindBy(xpath = "//button[.='Create']")

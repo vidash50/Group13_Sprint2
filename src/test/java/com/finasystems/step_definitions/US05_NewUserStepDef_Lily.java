@@ -43,7 +43,7 @@ public class US05_NewUserStepDef_Lily {
     @Given("user clicks contacts and searches for recent added contact by name")
     public void userClicksContactsAndSearchesForRecentAddedContactByName() {
         contactsPage.moduleContact.click();
-        BrowserUtils.waitFor(5);
+       BrowserUtils.waitFor(5);
         contactsPage.searchContactsBox.sendKeys("Karim");
         contactsPage.searchContactsBox.sendKeys(Keys.ENTER);
         BrowserUtils.waitForVisibility(contactsPage.createdContact, 15);
@@ -64,8 +64,7 @@ public class US05_NewUserStepDef_Lily {
         contactsPage.cityInput.clear();
         contactsPage.cityInput.sendKeys("Dallas");
         contactsPage.stateDropdown.click();
-        contactsPage.searchMore.click();
-        contactsPage.stateInput.click();
+        contactsPage.state.click();
         contactsPage.zipInput.sendKeys("77777");
         contactsPage.jobPositionInput.sendKeys("Sales Associates");
         contactsPage.mobileInput.sendKeys("1234567890");

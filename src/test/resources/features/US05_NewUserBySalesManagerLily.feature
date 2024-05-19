@@ -18,7 +18,8 @@ Feature: Default
 	
 	@B33G13-72
 	Scenario: All input boxes can be editable by clicking any customer and then the edit button.
-		Given user clicks contacts and searches for recent added contact by name
+		Given user clicks contacts
+	    Then user searches for recent added contact by name
 		And user clicks on edit 
 		Then user fills out all the empty input boxes 
 		Then user clicks save button

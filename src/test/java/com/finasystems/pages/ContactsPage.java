@@ -29,7 +29,7 @@ public class ContactsPage {
 
     //@FindBy (xpath = "(//div[@class='oe_kanban_partner_links'])[1]")
     //@FindBy (xpath = "(//strong[.='Karim'])[1]")
-    @FindBy(xpath = "(//div[@class='o_kanban_image'])[1]")
+    @FindBy(xpath = "(//div[@class='o_kanban_image'])[last()]")
     public WebElement createdContact;
 
     @FindBy(xpath = "//button[@accesskey='a']")
@@ -60,16 +60,20 @@ public class ContactsPage {
     @FindBy(name = "title")
     public WebElement titleDropdown;
 
+
    // @FindBy(xpath = "(//*[text()='Search More...'])[1]")
-    @FindBy(xpath = "//li[.='Search More...']")
+  // @FindBy(xpath = "//li[.='Search More...']")
+  //  @FindBy(xpath = "//*[text()='Search More...']")
+  // @FindBy(xpath = "//li/a[text()='Search More...']")
+    @FindBy(partialLinkText = ("Search More..."))
     public WebElement searchMoreTitleButton;
 
     @FindBy(xpath = "//button[.='Create']")
     public WebElement createTitleButton;
 
-    @FindBy(id = "o_field_input_2335")
+    @FindBy(xpath = "(//input[@class='o_field_char o_field_widget o_input o_required_modifier'])[2]")
     public WebElement titleInput;
 
     @FindBy(xpath = "(//button[.='Save'])[3]")
-    public WebElement saveTitleButon;
+    public WebElement saveTitleButton;
 }

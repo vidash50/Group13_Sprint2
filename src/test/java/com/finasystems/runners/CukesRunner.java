@@ -11,13 +11,13 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
-                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
-
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber",
+                "json:target/cucumber.json"
         },
         features = "src/test/resources/features",
         glue = "com/finasystems/step_definitions",
         dryRun = false,
-        tags = "@see_calendar",
+        tags = "@B33G13-73",
         publish = true
 )
 

@@ -3,6 +3,7 @@ package com.finasystems.step_definitions;
 import com.finasystems.pages.ContactsPage;
 import com.finasystems.pages.LoginPage;
 import com.finasystems.utilities.BrowserUtils;
+import com.finasystems.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,10 +11,17 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.devtools.v85.indexeddb.model.Key;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class US05_NewUserStepDef_Lily {
     ContactsPage contactsPage = new ContactsPage();
     LoginPage loginPage = new LoginPage();
+
+    WebDriverWait webDriverWait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
 
     @When("{string} can create a new customer")
@@ -40,20 +48,28 @@ public class US05_NewUserStepDef_Lily {
     }
 
 
-    @Given("user clicks contacts and searches for recent added contact by name")
-    public void userClicksContactsAndSearchesForRecentAddedContactByName() {
+    @Given("user clicks contacts")
+    public void userClicksContacts() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(contactsPage.moduleContact));
         contactsPage.moduleContact.click();
-       BrowserUtils.waitFor(5);
-        contactsPage.searchContactsBox.sendKeys("Karim");
-        contactsPage.searchContactsBox.sendKeys(Keys.ENTER);
-        BrowserUtils.waitForVisibility(contactsPage.createdContact, 15);
-        BrowserUtils.clickWithJS(contactsPage.createdContact);
-        contactsPage.createdContact.click();
+    }
+
+    @Then("user searches for recent added contact by name")
+    public void userSearchesForRecentAddedContactByName() {
+        webDriverWait.until(ExpectedConditions.visibilityOf(contactsPage.createButton));
+        contactsPage.searchContactsBox.sendKeys("Karim"+Keys.ENTER);
+        //contactsPage.searchContactsBox.sendKeys(Keys.ENTER);
+//        BrowserUtils.waitForVisibility(contactsPage.createdContact, 15);
+//        BrowserUtils.clickWithJS(contactsPage.createdContact);
+        BrowserUtils.sleep(3);
+        webDriverWait.until(ExpectedConditions.visibilityOf(contactsPage.createdContact));
+            contactsPage.createdContact.click();
 
     }
+
     @And("user clicks on edit")
     public void userClicksOnEdit() {
-        BrowserUtils.waitFor(5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(contactsPage.editButton));
         contactsPage.editButton.click();
     }
 
@@ -65,14 +81,17 @@ public class US05_NewUserStepDef_Lily {
         contactsPage.cityInput.sendKeys("Dallas");
         contactsPage.stateDropdown.click();
         contactsPage.state.click();
+        contactsPage.zipInput.clear();
         contactsPage.zipInput.sendKeys("77777");
+        contactsPage.jobPositionInput.clear();
         contactsPage.jobPositionInput.sendKeys("Sales Associates");
         contactsPage.mobileInput.sendKeys("1234567890");
         contactsPage.titleDropdown.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(contactsPage.searchMoreTitleButton));
         contactsPage.searchMoreTitleButton.click();
         contactsPage.createTitleButton.click();
         contactsPage.titleInput.sendKeys("Sales associate");
-        contactsPage.saveTitleButon.click();
+        contactsPage.saveTitleButton.click();
 
 
     }
@@ -81,6 +100,8 @@ public class US05_NewUserStepDef_Lily {
     public void userClicksSaveButton() {
         contactsPage.saveButton.click();
     }
+
+
 
 
 }

@@ -2,10 +2,12 @@ package com.finasystems.pages;
 
 import com.finasystems.utilities.Driver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,8 +23,10 @@ public class SalesManagerDashboardPage {
 //     element.click();
 
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav navbar-left oe_application_menu_placeholder']")
+    @FindAll({@FindBy(xpath = "//ul[@class='nav navbar-nav navbar-left oe_application_menu_placeholder']")})
     public List<WebElement> dashboardModule;
+
+
 
 }
 

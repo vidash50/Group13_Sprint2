@@ -58,12 +58,10 @@ public abstract class BasePage {
 
         }catch (Exception e){
             BrowserUtils.clickWithWait(By.xpath(profileName),5);
-            //System.out.println(" on profile menu");
+
         }
 
         try {
-            BrowserUtils.waitForClickablility(By.xpath(userProf2), 5);
-            BrowserUtils.waitForVisibility(By.xpath(userProf2), 5);
             Driver.getDriver().findElement(By.xpath(userProf2)).click();
         }catch (Exception e) {
 
@@ -73,25 +71,27 @@ public abstract class BasePage {
     public void clickDocument(){
 
         String profileName ="(//a[@class='dropdown-toggle'])[1]";
-        String documentationLocator = "(//ul[@class='dropdown-menu'])[2]//li//a";
+        String userProf2 = "//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']";
+
         try {
             BrowserUtils.waitForClickablility(By.xpath(profileName),5);
-            WebElement docElement = Driver.getDriver().findElement(By.xpath(documentationLocator));
+            WebElement profElement = Driver.getDriver().findElement(By.xpath(profileName));
 
-            new Actions(Driver.getDriver()).moveToElement(docElement).pause(200).doubleClick(docElement);
+            new Actions(Driver.getDriver()).moveToElement(profElement).pause(200)
+                    .clickAndHold(profElement).pause(200).click(profElement).build().perform();
 
         }catch (Exception e){
-            BrowserUtils.clickWithWait(By.xpath(documentationLocator),5);
+            BrowserUtils.clickWithWait(By.xpath(profileName),5);
+
         }
 
         try {
 
-            BrowserUtils.waitForPresenceOfElement(By.xpath(documentationLocator), 5);
-            BrowserUtils.waitForVisibility(By.xpath(documentationLocator), 5);
-            BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath(documentationLocator)));
-            Driver.getDriver().findElement(By.xpath(documentationLocator)).click();
+            Driver.getDriver().findElement(By.xpath(userProf2)).click();
+            BrowserUtils.waitForClickablility(By.xpath(profileName),5);
 
-        }catch (Exception e){
+        }catch (Exception e) {
+            BrowserUtils.clickWithWait(By.xpath("//a[@data-menu='documentation']"),5);
 
         }
 

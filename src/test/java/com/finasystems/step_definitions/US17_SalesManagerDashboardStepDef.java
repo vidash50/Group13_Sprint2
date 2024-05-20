@@ -7,29 +7,21 @@ import com.finasystems.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class US17_SalesManagerDashboard {
+public class US17_SalesManagerDashboardStepDef {
 
     SalesManagerDashboardPage salesManagerDashboardPage = new SalesManagerDashboardPage();
     LoginPage loginPage = new LoginPage();
     @Given("user is on sales manager profile")
     public void user_is_on_sales_manager_profile() {
 
-    }
+   }
 
 
-    @When("user sees all modules on the dashboard")
-    public void userSeesAllModulesOnTheDashboard() {
-       //salesManagerDashboardPage.dashboardModules.size();
-    }
+//    @When("user sees all modules on the dashboard")
+//    public void userSeesAllModulesOnTheDashboard() {
+//       //salesManagerDashboardPage.dashboardModules.size();
+//    }
 
     @Then("user clicks on each module on the dashboard")
     public void userClicksOnEachModuleOnTheDashboard() {
@@ -53,9 +45,13 @@ public class US17_SalesManagerDashboard {
         salesManagerDashboardPage.moreBtn.click();
         BrowserUtils.waitFor(2);
         salesManagerDashboardPage.expensesBtn.click();
+        BrowserUtils.waitFor(2);
         salesManagerDashboardPage.moreBtn.click();
+        BrowserUtils.waitFor(2);
         salesManagerDashboardPage.maintenanceBtn.click();
+        BrowserUtils.waitFor(2);
         salesManagerDashboardPage.moreBtn.click();
+        BrowserUtils.waitFor(2);
         salesManagerDashboardPage.dashboardsBtn.click();
     }
 }

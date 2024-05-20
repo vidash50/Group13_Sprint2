@@ -1,4 +1,4 @@
-@B33G13-82
+@B33G13-70
 Feature: Default
 
 	Background: User is already in the log in page
@@ -6,7 +6,7 @@ Feature: Default
 		Given the user logged in with username as "salesmanager6@info.com" and password as "salesmanager"
 
 
-	@B28-220
+	@B33G13-81
 	Scenario: As a sales manager, I should be able to access the different modules.
 		Given user is on sales manager profile
 		#When user sees all modules on the dashboard

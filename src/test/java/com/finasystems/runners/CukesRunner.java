@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/finasystems/step_definitions",
         dryRun = false,
-        tags = "@B33G13-82",
+        tags = "@B33G13-70",
         publish = true
 )
 

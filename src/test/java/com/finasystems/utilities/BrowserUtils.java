@@ -1,5 +1,6 @@
 package com.finasystems.utilities;
 
+import com.finasystems.pages.LoginPage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -485,16 +486,16 @@ public class BrowserUtils {
     }
 
     public static void verifyMessage(){
-        WebElement messagePop = null;
+        BrowserUtils.verifyMessage();
 
-        try {
-            messagePop= Driver.getDriver().findElement(By.id("element is not on the DOM"));
-        } catch (NoSuchElementException e) {
-            // Please fill out this field message CAN'T BE LOCATED
-            System.out.println("message not found on the page.");
-        }
+//        String validationMessage = loginPage.password.getAttribute("validationMessage");
+//
+//        Assert.assertEquals(validationMessage,"Please fill out this field.");
+//        System.out.println("validationMessage = " + validationMessage);
 
-        //System.out.println("Please fill out this field message");
+
+
+
     }
 
 

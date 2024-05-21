@@ -2,6 +2,7 @@ package com.finasystems.pages;
 
 import com.finasystems.utilities.BrowserUtils;
 import com.finasystems.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +16,7 @@ import java.time.Duration;
 import java.util.List;
 
 public abstract class BasePage {
+    LogoutPage logoutPage = new LogoutPage();
 
 
 
@@ -66,6 +68,32 @@ public abstract class BasePage {
         }catch (Exception e) {
 
         }
+    }
+
+    public void clickOnDocument() {
+
+        String userProf2 = "//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']";
+
+        Driver.getDriver().findElement(By.xpath(userProf2)).click();
+        BrowserUtils.sleep(2);
+
+        BrowserUtils.clickWithWait(By.xpath("//a[@data-menu='documentation']"), 2);
+
+    }
+        public void moveToProfileIcon(){
+        String userProf2 = "//ul[@class='nav navbar-nav navbar-right oe_user_menu_placeholder']";
+
+        Driver.getDriver().findElement(By.xpath(userProf2)).click();
+        BrowserUtils.sleep(2);
+
+        String textOptions= logoutPage.options.getText();
+        String expectedTextOptions= "Documentation\nSupport\nPreferences\nMy Odoo.com account\nLog out";
+        System.out.println("textOptions = " + textOptions);
+        Assert.assertEquals(textOptions, expectedTextOptions);
+
+//        String exp = "Documentation";
+//        Assert.assertEquals(exp, logoutPage.support.getText());
+
     }
 
     public void clickDocument(){
